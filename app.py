@@ -378,7 +378,7 @@ with tab_generate:
             st.session_state.openai_key = api_key
             selected_model_name = openai_model
         else:
-            fallback_models = ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-pro", "직접 입력(사용자 지정)"]
+            fallback_models = ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-1.5-flash", "gemini-1.5-pro", "gemini-pro", "직접 입력(사용자 지정)"]
 
             api_key_raw = st.text_input("Gemini API Key", type="password", value=st.session_state.gemini_key)
             if any(ch.isspace() for ch in (api_key_raw or "")):
@@ -439,7 +439,7 @@ with tab_generate:
             gemini_model = st.selectbox("Gemini 모델", model_options)
 
             if gemini_model == "직접 입력(사용자 지정)":
-                custom_model = st.text_input("사용할 모델명", placeholder="예) gemini-2.0-flash, gemini-1.5-flash")
+                custom_model = st.text_input("사용할 모델명", placeholder="예) gemini-2.5-flash, gemini-2.5-pro, gemini-1.5-flash")
                 selected_model_name = (custom_model or "").strip()
             else:
                 selected_model_name = gemini_model
